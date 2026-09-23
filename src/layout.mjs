@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import c from '../site.config.mjs';
-import { esc, tel } from './lib.mjs';
+import { esc, tel, imgSources } from './lib.mjs';
+
+const preloadTag = (name) => { const { srcset, fallback } = imgSources(name); return `<link rel="preload" as="image" href="/img/${name}-${fallback}.webp" imagesrcset="${srcset}" imagesizes="100vw" fetchpriority="high">`; };
 
 const css = fs.readFileSync(new URL('./style.css', import.meta.url), 'utf8')
   .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').replace(/\s*([{}:;,>])\s*/g, '$1');
@@ -74,7 +76,7 @@ ${noindex || process.env.STAGING ? '<meta name="robots" content="noindex,nofollo
 <link rel="icon" href="/img/icon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/img/icon-180.png">
 <link rel="manifest" href="/site.webmanifest">
-${preload ? `<link rel="preload" as="image" href="/img/${preload}-1280.webp" imagesrcset="/img/${preload}-640.webp 640w, /img/${preload}-1280.webp 1280w, /img/${preload}-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">` : ''}
+${preload ? preloadTag(preload) : ''}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" media="print" onload="this.media='all'">

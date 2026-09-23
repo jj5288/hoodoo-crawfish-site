@@ -1,7 +1,7 @@
 /* Hoodoo palette, lifted from the Wix theme: near-black, Hoodoo red, white, cream. */
 :root{
   --black:#0b0a0a; --coal:#161313; --char:#221d1d; --line:#3a3232;
-  --red:#e40d0a; --red-deep:#b00a08; --red-ink:#c20b08;
+  --red:#e40d0a; --red-deep:#b00a08; --red-ink:#c20b08; --red-text:#ff5a4a;
   --white:#fff; --cream:#f6f1e4; --ink:#1b1616; --ink-2:#4d4444; --mute:#b9adad;
   --corn:#f5c518;
   --serif:"Libre Baskerville",Georgia,"Times New Roman",serif;
@@ -87,8 +87,8 @@ a.card:hover{transform:translateY(-3px);border-color:var(--red)}
 .card-b h3{margin:0;text-transform:uppercase;font-size:1.12rem}
 .card-b p{margin:0;color:var(--mute);font-size:.97rem}
 .card .tag{align-self:flex-start;background:var(--red);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:2px}
-.card .more{margin-top:auto;padding-top:10px;font-weight:800;color:var(--red);font-size:.9rem;text-transform:uppercase;letter-spacing:.04em}
-.band-light .card{background:#fff;border-color:#e4dccb}.band-light .card-b p{color:var(--ink-2)}
+.card .more{margin-top:auto;padding-top:10px;font-weight:800;color:var(--red-text);font-size:.9rem;text-transform:uppercase;letter-spacing:.04em}
+.band-light .card{background:#fff;border-color:#e4dccb}.band-light .card .more{color:var(--red-ink)}.band-light .card-b p{color:var(--ink-2)}
 
 /* season strip */
 .season{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin:22px 0 10px}

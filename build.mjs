@@ -67,3 +67,21 @@ fs.writeFileSync(path.join(out, 'site.webmanifest'), JSON.stringify({
 if (process.env.CNAME) fs.writeFileSync(path.join(out, 'CNAME'), process.env.CNAME + '\n');
 fs.writeFileSync(path.join(out, '.nojekyll'), '');
 console.log(`built ${pages.length} pages + ${Object.keys(REDIRECTS).length} redirects -> dist/${BASE ? ` (base ${BASE})` : ''}${process.env.STAGING ? ' [STAGING noindex]' : ''}`);
+
+// Every root-relative href/src/srcset in the output must resolve to a real file.
+const missing = new Set();
+const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
+for (const f of walk(out).filter((f) => f.endsWith('.html'))) {
+  const html = fs.readFileSync(f, 'utf8');
+  const refs = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1])
+    .concat([...html.matchAll(/(?:srcset|imagesrcset)="([^"]+)"/g)].flatMap((m) => m[1].split(',').map((s) => s.trim().split(' ')[0])));
+  for (let r of refs) {
+    if (!r.startsWith('/') || r.startsWith('//')) continue;
+    r = r.split(/[?#]/)[0];
+    if (BASE) { if (!r.startsWith(BASE + '/')) { missing.add(`${r} (no base) in ${path.relative(out, f)}`); continue; } r = r.slice(BASE.length); }
+    const p = path.join(out, r);
+    if (!(fs.existsSync(p) && fs.statSync(p).isFile()) && !fs.existsSync(path.join(p, 'index.html'))) missing.add(`${r} in ${path.relative(out, f)}`);
+  }
+}
+if (missing.size) { console.error([...missing].join('\n')); throw new Error(`${missing.size} broken local links`); }
+console.log('links ok');

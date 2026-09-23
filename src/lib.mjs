@@ -5,14 +5,19 @@ const dims = JSON.parse(fs.readFileSync(new URL('../public/img/dims.json', impor
 
 export const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
 
+export function imgSources(name) {
+  const [, , made] = dims[name];
+  return { srcset: made.map(([sfx, aw]) => `/img/${name}-${sfx}.webp ${aw}w`).join(', '), fallback: (made.find(([sfx]) => sfx === 1280) || made.at(-1))[0] };
+}
+
 // Responsive WebP photo. `sizes` defaults to full width.
 export function img(name, alt, { sizes = '100vw', cls = '', eager = false } = {}) {
   const d = dims[name];
   if (!d) throw new Error(`unknown image ${name}`);
-  const [w, h, max] = d;
-  const widths = [640, 1280, 1920].filter((x) => x <= max);
-  const srcset = widths.map((x) => `/img/${name}-${x}.webp ${x}w`).join(', ');
-  return `<img src="/img/${name}-${widths.at(-1) === 1920 ? 1280 : widths.at(-1)}.webp" srcset="${srcset}" sizes="${sizes}" width="${w}" height="${h}" alt="${esc(alt)}"${cls ? ` class="${cls}"` : ''}${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}>`;
+  const [w, h, made] = d; // made: [[fileSuffix, actualWidth], ...]
+  const srcset = made.map(([sfx, aw]) => `/img/${name}-${sfx}.webp ${aw}w`).join(', ');
+  const fallback = (made.find(([sfx]) => sfx === 1280) || made.at(-1))[0];
+  return `<img src="/img/${name}-${fallback}.webp" srcset="${srcset}" sizes="${sizes}" width="${w}" height="${h}" alt="${esc(alt)}"${cls ? ` class="${cls}"` : ''}${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}>`;
 }
 
 export const tel = (label = c.phone, cls = 'btn btn-ghost') => `<a class="${cls}" href="tel:${c.phoneHref}">${label}</a>`;

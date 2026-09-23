@@ -30,13 +30,15 @@ def load(i):
     return im
 for name, i in PHOTOS.items():
     im = load(i).convert('RGB')
+    made = []
     for w in (640, 1280, 1920):
-        if w > im.width and w != 640: continue
-        if w == 1920 and name not in HERO_SIZES: continue
+        if w == 1920 and (name not in HERO_SIZES or im.width < 1920): continue
         c = im.copy(); c.thumbnail((w, w * 2))
-        c.save(f'{out}/{name}-{w}.webp', 'WEBP', quality=72, method=6)
+        if made and c.width <= made[-1][1]: continue  # source too small for this size
+        c.save(f'{out}/{name}-{w}.webp', 'WEBP', quality=68 if w > 640 else 72, method=6)
+        made.append((w, c.width))
     if name in OG: c = im.copy(); c.thumbnail((1200, 1200)); c.save(f'{out}/{name}.jpg', 'JPEG', quality=78, optimize=True, progressive=True)
-    dims[name] = [im.width, im.height, 1920 if name in HERO_SIZES else 1280]
+    dims[name] = [im.width, im.height, made]
 for name, i in LOGOS.items():
     im = load(i).convert('RGBA'); im.thumbnail((320, 200))
     im.save(f'{out}/logos/{name}.webp', 'WEBP', quality=85)
