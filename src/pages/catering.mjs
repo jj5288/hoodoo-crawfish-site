@@ -194,11 +194,12 @@ ${hero({ image: 'festival-tent', alt: 'The Hoodoo Crawfish tent serving a crowd 
       ${img('patio-event', 'Crowd at a patio boil event', { sizes: '(max-width:760px) 50vw, 290px' })}
       ${img('boil-outdoor', 'Boiling crawfish outdoors', { sizes: '(max-width:760px) 50vw, 290px' })}
       ${img('crawfish-corn-2', 'Crawfish and corn fresh from the boil', { sizes: '(max-width:760px) 50vw, 290px' })}
+      ${img('boil-closeup', 'Crawfish and sausage in the boil basket', { sizes: '(max-width:760px) 50vw, 290px' })}
     </div>
   </div>
 </section>
 
-${clients('Breweries &amp; events we&rsquo;ve worked')}
+${clients()}
 <section class="band"><div class="wrap narrow"><h2>Festival catering questions</h2>${festQ.html}</div></section>
 ${bookBand('Bring Hoodoo to your festival')}
 `,

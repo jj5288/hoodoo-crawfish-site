@@ -25,7 +25,7 @@ const book = {
 ${hero({ image: 'boil-steam', alt: 'Steam rising off a Hoodoo boil', short: true, ctas: false,
   eyebrow: 'Two minutes, then we take it from here',
   h1: 'Book a Boil',
-  lede: 'Send the basics and we&rsquo;ll confirm the date and come back with a quote. Rather talk? Call <a href="tel:${c.phoneHref}">${c.phone}</a> or <a href="${c.calendly}" rel="noopener">schedule a call</a>.' })}
+  lede: `Send the basics and we&rsquo;ll confirm the date and come back with a quote. Rather talk? Call <a href="tel:${c.phoneHref}">${c.phone}</a> or <a href="${c.calendly}" rel="noopener">schedule a call</a>.` })}
 
 <section class="band band-light">
   <div class="wrap split top">
@@ -74,9 +74,9 @@ const delivery = {
   schema: [crumbs([['Delivery', '/delivery/']])],
   body: `
 ${hero({ image: 'crab-shrimp-platter', alt: 'HooDoo Magic Platter with crab clusters and shrimp', short: true, ctas: false,
-  eyebrow: 'Hot boil platters, delivered, no-contact available',
+  eyebrow: 'Hot boil platters, delivered',
   h1: 'Seafood Boil Delivery',
-  lede: 'Not big enough for a full boil? Get Hoodoo platters delivered hot to your party or office. <b>3 platter minimum.</b>' })}
+  lede: 'Not big enough for a full boil? Get Hoodoo platters delivered hot to your party or office, no-contact if you like. <b>3 platter minimum.</b>' })}
 
 <section class="band band-light">
   <div class="wrap split top">
@@ -132,7 +132,7 @@ ${hero({ image: 'festival-tent-2', alt: 'Hoodoo crew at a public boil', short: t
       : `<div class="callout"><p><b>The 2027 boil calendar is coming.</b> Public boils start with crawfish season in the new year. Follow <a href="${c.social.instagram}" rel="noopener">@hoodoocrawfish on Instagram</a> for dates, or <a href="/book/">book a private boil</a> any time of year.</p></div>`}
   </div>
 </section>
-${clients('Where you might have seen us')}
+${clients()}
 ${bookBand('Want a boil of your own?')}
 `,
 };
@@ -190,7 +190,7 @@ ${hero({ image: 'hat-lineup', alt: 'Lineup of Hoodoo Crawfish trucker hats', sho
     <div class="cards">
       <div class="card">${img('hat', 'Hoodoo Crawfish trucker hat', { sizes: '(max-width:760px) 100vw, 380px' })}<div class="card-b"><h3>Hoodoo Hat</h3><p>$28</p></div></div>
       <div class="card">${img('shirt', 'Black Hoodoo Crawfish shirt', { sizes: '(max-width:760px) 100vw, 380px' })}<div class="card-b"><h3>Hoodoo Shirt</h3><p>$25</p></div></div>
-      <div class="card">${img('shirt-back', 'Back of the Hoodoo Crawfish shirt', { sizes: '(max-width:760px) 100vw, 380px' })}<div class="card-b"><h3>The back print</h3><p>The full Hoodoo crest.</p></div></div>
+      <div class="card">${img('shirt-back', 'Back of the Hoodoo Crawfish shirt', { sizes: '(max-width:760px) 100vw, 380px' })}<div class="card-b"><h3>Hoodoo Shirt, back</h3><p>The full Hoodoo crest. $25</p></div></div>
     </div>
     <div class="ctas"><a class="btn" href="mailto:${c.email}?subject=Hoodoo%20swag">Ask about swag</a><a class="btn btn-ghost" href="tel:${c.phoneHref}">Call ${c.phone}</a></div>
   </div>

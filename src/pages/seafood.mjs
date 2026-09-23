@@ -74,12 +74,6 @@ ${hero({
   </div>
 </section>
 
-<section class="band band-coal">
-  <div class="wrap narrow">
-    ${testimonial()}
-  </div>
-</section>
-
 <section class="band">
   <div class="wrap narrow">
     <h2>Seafood boil questions</h2>

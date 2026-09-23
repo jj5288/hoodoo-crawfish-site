@@ -27,6 +27,7 @@ for (const p of pages) {
   seen.add(p.path);
   const html = rebase(layout(p));
   // Guard against the Wix-era failures the audit found.
+  if (html.includes('${')) throw new Error(`${p.path} contains an unrendered \${...} placeholder`);
   const h1s = (html.match(/<h1[\s>]/g) || []).length;
   if (h1s !== 1) throw new Error(`${p.path} has ${h1s} <h1>`);
   if (p.title.length > 70) console.warn(`! title ${p.title.length} chars: ${p.path}`);

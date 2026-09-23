@@ -58,6 +58,8 @@ ${hero({ image: 'crawfish-macro', alt: 'Close-up of bright red boiled crawfish',
       ${img('boil-scoop', 'Scooping crawfish, sausage and potatoes out of the boil', { cls: 'wide', sizes: '(max-width:760px) 100vw, 580px' })}
       ${img('shrimp-boil', 'Shrimp boil', { sizes: '(max-width:760px) 50vw, 290px' })}
       ${img('crab-shrimp-platter', 'Crab and shrimp platter', { sizes: '(max-width:760px) 50vw, 290px' })}
+      ${img('crawfish-corn-2', 'Crawfish and corn', { sizes: '(max-width:760px) 50vw, 290px' })}
+      ${img('cooker-veg', 'Corn and potatoes in the cooker', { sizes: '(max-width:760px) 50vw, 290px' })}
     </div>
   </div>
 </section>
