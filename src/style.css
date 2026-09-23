@@ -165,8 +165,8 @@ a.card:hover{transform:translateY(-3px);border-color:var(--red)}
 .field input:focus,.field select:focus,.field textarea:focus{outline:3px solid #e40d0a33;border-color:var(--red)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 fieldset.field{border:0;padding:0;margin:0 0 16px}
-.radios{display:flex;flex-wrap:wrap;gap:8px}
-.radios label{font-weight:600;border:1.5px solid #cfc5b2;border-radius:var(--r);padding:8px 12px;cursor:pointer}
+.radios{display:flex;flex-direction:column;gap:8px}
+.radios label{display:flex;align-items:center;font-weight:600;border:1.5px solid #cfc5b2;border-radius:var(--r);padding:8px 12px;cursor:pointer}
 .radios input{margin-right:6px}
 .result{background:var(--cream);border-radius:var(--r);padding:18px 20px;margin-top:6px}
 .result .big{font-size:2.2rem;font-weight:800;color:var(--red-ink);line-height:1.1;display:block}
@@ -193,7 +193,7 @@ fieldset.field{border:0;padding:0;margin:0 0 16px}
 /* footer */
 .site-foot{background:#050404;border-top:4px solid var(--red);padding:60px 0 100px;font-size:.95rem}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px}
-.foot-grid h2{font-size:.9rem;letter-spacing:.1em;color:var(--red);margin-bottom:12px}
+.foot-grid h2{font-size:.9rem;letter-spacing:.1em;color:var(--red-text);margin-bottom:12px}
 .foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .foot-grid a{text-decoration:none;color:#ddd}.foot-grid a:hover{color:var(--red)}
 .foot-grid img{width:96px;margin-bottom:12px}

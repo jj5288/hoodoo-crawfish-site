@@ -87,7 +87,7 @@ ${ld.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-in">
-    <a class="brand" href="/" aria-label="Hoodoo Crawfish home"><img src="/img/logo.webp" width="96" height="94" alt="Hoodoo Crawfish Catering Co."></a>
+    <a class="brand" href="/" aria-label="Hoodoo Crawfish home"><img src="/img/logo-sm.webp" width="96" height="94" alt="Hoodoo Crawfish Catering Co."></a>
     <details class="menu-toggle"><summary aria-label="Menu"><span></span><span></span><span></span></summary></details>
     <nav aria-label="Main"><ul>${navHtml(path)}</ul></nav>
     <div class="head-cta">${tel(c.phone, 'head-tel')}<a class="btn btn-sm" href="/book/">Book a Boil</a></div>
@@ -99,7 +99,7 @@ ${body}
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div>
-      <img src="/img/logo.webp" width="120" height="118" alt="" loading="lazy">
+      <img src="/img/logo-sm.webp" width="120" height="118" alt="" loading="lazy">
       <p><b>${c.name}</b><br>Based in Austin, born in Louisiana.<br>Crawfish, shrimp &amp; crab boils catered on site.</p>
     </div>
     <div>

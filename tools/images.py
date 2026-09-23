@@ -31,7 +31,8 @@ def load(i):
 for name, i in PHOTOS.items():
     im = load(i).convert('RGB')
     made = []
-    for w in (640, 1280, 1920):
+    for w in (640, 960, 1280, 1920):
+        if w == 960 and name not in HERO_SIZES: continue
         if w == 1920 and (name not in HERO_SIZES or im.width < 1920): continue
         c = im.copy(); c.thumbnail((w, w * 2))
         if made and c.width <= made[-1][1]: continue  # source too small for this size
@@ -46,6 +47,7 @@ for name, i in LOGOS.items():
 # brand marks
 lg = load(7).convert('RGBA'); lg.thumbnail((480, 480)); lg.save(f'{out}/logo.webp', 'WEBP', quality=90); lg.save(f'{out}/logo.png', optimize=True)
 dims['logo'] = [lg.width, lg.height, 0]
+sm = lg.copy(); sm.thumbnail((140, 140)); sm.save(f'{out}/logo-sm.webp', 'WEBP', quality=88)
 for s in (32, 180, 192, 512):
     f = lg.copy(); f.thumbnail((s, s)); bg = Image.new('RGBA', (s, s), (9, 8, 8, 255))
     bg.paste(f, ((s - f.width)//2, (s - f.height)//2), f); bg.save(f'{out}/icon-{s}.png')
