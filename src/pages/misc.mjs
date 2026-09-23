@@ -74,7 +74,7 @@ const delivery = {
   schema: [crumbs([['Delivery', '/delivery/']])],
   body: `
 ${hero({ image: 'crab-shrimp-platter', alt: 'HooDoo Magic Platter with crab clusters and shrimp', short: true, ctas: false,
-  eyebrow: 'Hot boil platters, delivered',
+  eyebrow: 'Hot boil platters, delivered, no-contact available',
   h1: 'Seafood Boil Delivery',
   lede: 'Not big enough for a full boil? Get Hoodoo platters delivered hot to your party or office. <b>3 platter minimum.</b>' })}
 
@@ -154,7 +154,7 @@ ${hero({ image: 'party-crowd', alt: 'Happy guests at a Hoodoo crawfish boil', sh
   <div class="wrap narrow" style="text-align:center">
     <h2>Read all ${c.rating.count} reviews</h2>
     <p class="sub" style="margin-inline:auto">Every one of them is on our Google profile.</p>
-    <div class="ctas" style="justify-content:center"><a class="btn" href="${c.googleReviewsUrl}" rel="noopener" target="_blank">Read reviews on Google</a><a class="btn btn-ghost" href="/book/">Book a boil</a></div>
+    <div class="ctas" style="justify-content:center"><a class="btn" href="${c.googleReviewsUrl}" rel="noopener" target="_blank">Read reviews on Google</a><a class="btn btn-ghost" href="${c.googleWriteReviewUrl}" rel="noopener" target="_blank">Had a Hoodoo boil? Leave a review</a></div>
   </div>
 </section>
 ${clients()}

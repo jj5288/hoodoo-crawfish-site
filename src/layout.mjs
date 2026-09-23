@@ -37,10 +37,12 @@ const business = {
   telephone: '+1-512-552-7191',
   email: c.email,
   servesCuisine: ['Cajun', 'Seafood', 'Louisiana'],
-  description: 'Louisiana-born mobile catering company in Austin, Texas, boiling crawfish, shrimp and crab on site for corporate events, private parties and festivals.',
+  description: 'Louisiana-born Cajun catering company in Austin, Texas, boiling crawfish, shrimp and crab on site for corporate events, private parties and festivals.',
   address: { '@type': 'PostalAddress', addressLocality: 'Austin', addressRegion: 'TX', addressCountry: 'US' },
   areaServed: [{ '@type': 'City', name: 'Austin' }, { '@type': 'AdministrativeArea', name: 'Austin metropolitan area, Texas' }],
-  sameAs: Object.values(c.social),
+  sameAs: [...Object.values(c.social), c.googleMapsUrl],
+  hasMap: c.googleMapsUrl,
+  paymentAccepted: 'Credit card, debit card, mobile payment',
   hasMenu: c.siteUrl + '/menu/',
   potentialAction: { '@type': 'ReserveAction', target: c.siteUrl + '/book/', name: 'Book a boil' },
 };
@@ -100,7 +102,7 @@ ${body}
   <div class="wrap foot-grid">
     <div>
       <img src="/img/logo-sm.webp" width="120" height="118" alt="" loading="lazy">
-      <p><b>${c.name}</b><br>Based in Austin, born in Louisiana.<br>Crawfish, shrimp &amp; crab boils catered on site.</p>
+      <p><b>${c.name}</b><br>Based in Austin, born in Louisiana.<br>Cajun crawfish, shrimp &amp; crab boils catered on site.</p>
     </div>
     <div>
       <h2>Catering</h2>

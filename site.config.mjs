@@ -17,7 +17,10 @@ export default {
   },
   // Google Business Profile, as read on 2026-09-20. Update when it moves.
   rating: { value: '5.0', count: 274, source: 'Google' },
-  googleReviewsUrl: 'https://www.google.com/search?q=HooDoo+Crawfish+Catering+Austin+reviews',
+  // Google Business Profile ids, from the 2026-09-20 audit pull.
+  googleMapsUrl: 'https://www.google.com/maps?cid=3990173114121243196',
+  googleReviewsUrl: 'https://www.google.com/maps?cid=3990173114121243196',
+  googleWriteReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJycyu7VEtW4YRPMqCc07xXzc',
 
   // ---- Owner decisions. Left null until Hoodoo confirms; the site reads fine without them. ----
   // e.g. '15% off Saturday pricing, Monday-Thursday'

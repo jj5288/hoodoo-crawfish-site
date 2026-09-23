@@ -17,7 +17,7 @@ const q = faq([
 export default {
   path: '/',
   title: 'Crawfish & Seafood Boil Catering in Austin, TX | Hoodoo Crawfish',
-  description: 'Louisiana-born crawfish, shrimp and crab boil catering in Austin. We boil on site for corporate events, private parties and festivals, year-round. 5.0 on Google.',
+  description: 'Louisiana-born Cajun catering in Austin: crawfish, shrimp and crab boils cooked on site for corporate events, private parties and festivals. 5.0 on Google.',
   preload: 'hero-crawfish-corn',
   schema: [q.schema],
   body: `
@@ -76,8 +76,8 @@ ${hero({
     ${img('team-banner', 'The Hoodoo Crawfish Catering Co. crew behind their banner', { sizes: '(max-width:760px) 100vw, 560px' })}
     <div>
       <p class="eyebrow">About Hoodoo</p>
-      <h2>Louisiana natives, boiling in Austin</h2>
-      <p>We grew up on crawfish boils in Louisiana and brought the whole thing with us: the cookers, the patience, and a spice blend that stays in the family. Whether it&rsquo;s a company party or the event of the century, you get a boil that looks and tastes the way it does back home.</p>
+      <h2>Louisiana natives, boiling mudbugs in Austin</h2>
+      <p>We grew up on crawfish boils in Louisiana and brought the whole thing with us: the cookers, the patience, and a spice blend that stays in the family. Whether it&rsquo;s a company party or the event of the century, you get a boil that looks and tastes the way it does back home, with real Cajun seasoning.</p>
       <p>We cook on site and serve it hot, so the host gets to eat too.</p>
       ${testimonial()}
     </div>
